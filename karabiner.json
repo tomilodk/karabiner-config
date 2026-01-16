@@ -78,6 +78,97 @@
                             },
                             {
                                 "type": "basic",
+                                "description": "CMD+Shift+4 -> Win+Shift+S (screenshot)",
+                                "from": { "key_code": "4", "modifiers": { "mandatory": ["command", "shift"] } },
+                                "to": [{ "key_code": "s", "modifiers": ["left_command", "shift"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "Option+8 -> [ (AltGr+8 Danish)",
+                                "from": { "key_code": "8", "modifiers": { "mandatory": ["option"] } },
+                                "to": [{ "key_code": "8", "modifiers": ["right_alt"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "Option+9 -> ] (AltGr+9 Danish)",
+                                "from": { "key_code": "9", "modifiers": { "mandatory": ["option"] } },
+                                "to": [{ "key_code": "9", "modifiers": ["right_alt"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "Option+Shift+8 -> { (AltGr+7 Danish)",
+                                "from": { "key_code": "8", "modifiers": { "mandatory": ["option", "shift"] } },
+                                "to": [{ "key_code": "7", "modifiers": ["right_alt"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "Option+Shift+9 -> } (AltGr+0 Danish)",
+                                "from": { "key_code": "9", "modifiers": { "mandatory": ["option", "shift"] } },
+                                "to": [{ "key_code": "0", "modifiers": ["right_alt"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "Option+Shift+7 -> \\ (AltGr+< Danish)",
+                                "from": { "key_code": "7", "modifiers": { "mandatory": ["option", "shift"] } },
+                                "to": [{ "key_code": "non_us_backslash", "modifiers": ["right_alt"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "Option+7 -> | (AltGr+< Shift Danish)",
+                                "from": { "key_code": "7", "modifiers": { "mandatory": ["option"] } },
+                                "to": [{ "key_code": "non_us_backslash", "modifiers": ["right_alt", "shift"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "Option+2 -> @ (AltGr+2 Danish)",
+                                "from": { "key_code": "2", "modifiers": { "mandatory": ["option"] } },
+                                "to": [{ "key_code": "2", "modifiers": ["right_alt"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "Option+^ -> ~ (tilde)",
+                                "from": { "key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["option"] } },
+                                "to": [{ "key_code": "grave_accent_and_tilde", "modifiers": ["right_alt"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "Shift+^ -> ` (backtick)",
+                                "from": { "key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["shift"] } },
+                                "to": [{ "key_code": "equal_sign", "modifiers": ["right_alt"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "Ctrl+Option+Left -> Win+Left (snap window left)",
+                                "from": { "key_code": "left_arrow", "modifiers": { "mandatory": ["control", "option"] } },
+                                "to": [{ "key_code": "left_arrow", "modifiers": ["left_command"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "Ctrl+Option+Right -> Win+Right (snap window right)",
+                                "from": { "key_code": "right_arrow", "modifiers": { "mandatory": ["control", "option"] } },
+                                "to": [{ "key_code": "right_arrow", "modifiers": ["left_command"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "Ctrl+Option+Enter -> Win+Up (maximize window)",
+                                "from": { "key_code": "return_or_enter", "modifiers": { "mandatory": ["control", "option"] } },
+                                "to": [{ "key_code": "up_arrow", "modifiers": ["left_command"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
                                 "description": "Option+Left -> Ctrl+Left (word back)",
                                 "from": { "key_code": "left_arrow", "modifiers": { "mandatory": ["option"], "optional": ["shift"] } },
                                 "to": [{ "key_code": "left_arrow", "modifiers": ["left_control"] }],
