@@ -18,30 +18,107 @@
                 },
                 "rules": [
                     {
-                        "description": "Parsec: Mac text navigation to Windows equivalents",
+                        "description": "Parsec: Mac to Windows keyboard mappings",
                         "manipulators": [
                             {
                                 "type": "basic",
-                                "description": "CMD+W -> CTRL+W (close tab)",
+                                "description": "CMD+Left -> Home",
                                 "from": {
-                                    "key_code": "w",
+                                    "key_code": "left_arrow",
                                     "modifiers": {
                                         "mandatory": ["command"],
                                         "optional": ["shift"]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "w",
-                                        "modifiers": ["left_control"]
+                                "to": [{ "key_code": "home" }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+Shift+Left -> Shift+Home",
+                                "from": {
+                                    "key_code": "left_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["command", "shift"]
                                     }
-                                ],
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": ["^tv\\.parsec\\.www$"]
+                                },
+                                "to": [{ "key_code": "home", "modifiers": ["shift"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+Right -> End",
+                                "from": {
+                                    "key_code": "right_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["shift"]
                                     }
-                                ]
+                                },
+                                "to": [{ "key_code": "end" }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+Shift+Right -> Shift+End",
+                                "from": {
+                                    "key_code": "right_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["command", "shift"]
+                                    }
+                                },
+                                "to": [{ "key_code": "end", "modifiers": ["shift"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+Up -> Ctrl+Home",
+                                "from": {
+                                    "key_code": "up_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["shift"]
+                                    }
+                                },
+                                "to": [{ "key_code": "home", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+Shift+Up -> Ctrl+Shift+Home",
+                                "from": {
+                                    "key_code": "up_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["command", "shift"]
+                                    }
+                                },
+                                "to": [{ "key_code": "home", "modifiers": ["left_control", "shift"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+Down -> Ctrl+End",
+                                "from": {
+                                    "key_code": "down_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["shift"]
+                                    }
+                                },
+                                "to": [{ "key_code": "end", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+Shift+Down -> Ctrl+Shift+End",
+                                "from": {
+                                    "key_code": "down_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["command", "shift"]
+                                    }
+                                },
+                                "to": [{ "key_code": "end", "modifiers": ["left_control", "shift"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
                             },
                             {
                                 "type": "basic",
@@ -53,18 +130,8 @@
                                         "optional": ["shift"]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "left_arrow",
-                                        "modifiers": ["left_control"]
-                                    }
-                                ],
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": ["^tv\\.parsec\\.www$"]
-                                    }
-                                ]
+                                "to": [{ "key_code": "left_arrow", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
                             },
                             {
                                 "type": "basic",
@@ -76,129 +143,8 @@
                                         "optional": ["shift"]
                                     }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "right_arrow",
-                                        "modifiers": ["left_control"]
-                                    }
-                                ],
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": ["^tv\\.parsec\\.www$"]
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "basic",
-                                "description": "CMD+Left -> Home (beginning of line)",
-                                "from": {
-                                    "key_code": "left_arrow",
-                                    "modifiers": {
-                                        "mandatory": ["command"],
-                                        "optional": ["shift"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "home"
-                                    }
-                                ],
-                                "conditions": [
-                                    { 
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": ["^tv\\.parsec\\.www$"]
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "basic",
-                                "description": "CMD+Right -> End (end of line)",
-                                "from": {
-                                    "key_code": "right_arrow",
-                                    "modifiers": {
-                                        "mandatory": ["command"],
-                                        "optional": ["shift"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "end"
-                                    }
-                                ],
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": ["^tv\\.parsec\\.www$"]
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "basic",
-                                "description": "CMD+Up -> Page Up",
-                                "from": {
-                                    "key_code": "up_arrow",
-                                    "modifiers": {
-                                        "mandatory": ["command"],
-                                        "optional": ["shift"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "page_up"
-                                    }
-                                ],
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": ["^tv\\.parsec\\.www$"]
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "basic",
-                                "description": "CMD+Down -> Page Down",
-                                "from": {
-                                    "key_code": "down_arrow",
-                                    "modifiers": {
-                                        "mandatory": ["command"],
-                                        "optional": ["shift"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "page_down"
-                                    }
-                                ],
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": ["^tv\\.parsec\\.www$"]
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "basic",
-                                "description": "Ctrl+Minus -> Alt+Left (VSCode navigate back)",
-                                "from": {
-                                    "key_code": "hyphen",
-                                    "modifiers": {
-                                        "mandatory": ["control"],
-                                        "optional": []
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_arrow",
-                                        "modifiers": ["left_option"]
-                                    }
-                                ],
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": ["^tv\\.parsec\\.www$"]
-                                    }
-                                ]
+                                "to": [{ "key_code": "right_arrow", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
                             },
                             {
                                 "type": "basic",
@@ -206,203 +152,388 @@
                                 "from": {
                                     "key_code": "hyphen",
                                     "modifiers": {
-                                        "mandatory": ["control", "shift"],
-                                        "optional": []
+                                        "mandatory": ["control", "shift"]
+                                    }
+                                },
+                                "to": [{ "key_code": "right_arrow", "modifiers": ["left_option"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "Ctrl+Minus -> Alt+Left (VSCode navigate back)",
+                                "from": {
+                                    "key_code": "hyphen",
+                                    "modifiers": {
+                                        "mandatory": ["control"]
+                                    }
+                                },
+                                "to": [{ "key_code": "left_arrow", "modifiers": ["left_option"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+Tab -> Alt+Tab",
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["shift"]
+                                    }
+                                },
+                                "to": [{ "key_code": "tab", "modifiers": ["left_option"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+Q -> Alt+F4",
+                                "from": {
+                                    "key_code": "q",
+                                    "modifiers": {
+                                        "mandatory": ["command"]
+                                    }
+                                },
+                                "to": [{ "key_code": "f4", "modifiers": ["left_option"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+Shift+Z -> Ctrl+Y (redo)",
+                                "from": {
+                                    "key_code": "z",
+                                    "modifiers": {
+                                        "mandatory": ["command", "shift"]
+                                    }
+                                },
+                                "to": [{ "key_code": "y", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "Option+Backspace -> Ctrl+Backspace (delete word)",
+                                "from": {
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": {
+                                        "mandatory": ["option"]
+                                    }
+                                },
+                                "to": [{ "key_code": "delete_or_backspace", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+Backspace -> Shift+Home, Backspace (delete to start of line)",
+                                "from": {
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": {
+                                        "mandatory": ["command"]
                                     }
                                 },
                                 "to": [
-                                    {
-                                        "key_code": "right_arrow",
-                                        "modifiers": ["left_option"]
-                                    }
+                                    { "key_code": "home", "modifiers": ["left_shift"] },
+                                    { "key_code": "delete_or_backspace" }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": ["^tv\\.parsec\\.www$"]
-                                    }
-                                ]
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+A -> Ctrl+A",
+                                "from": { "key_code": "a", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "a", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+B -> Ctrl+B",
+                                "from": { "key_code": "b", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "b", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+C -> Ctrl+C",
+                                "from": { "key_code": "c", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "c", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+D -> Ctrl+D",
+                                "from": { "key_code": "d", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "d", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+E -> Ctrl+E",
+                                "from": { "key_code": "e", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "e", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+F -> Ctrl+F",
+                                "from": { "key_code": "f", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "f", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+G -> Ctrl+G",
+                                "from": { "key_code": "g", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "g", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+H -> Ctrl+H",
+                                "from": { "key_code": "h", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "h", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+I -> Ctrl+I",
+                                "from": { "key_code": "i", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "i", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+J -> Ctrl+J",
+                                "from": { "key_code": "j", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "j", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+K -> Ctrl+K",
+                                "from": { "key_code": "k", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "k", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+L -> Ctrl+L",
+                                "from": { "key_code": "l", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "l", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+M -> Ctrl+M",
+                                "from": { "key_code": "m", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "m", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+N -> Ctrl+N",
+                                "from": { "key_code": "n", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "n", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+O -> Ctrl+O",
+                                "from": { "key_code": "o", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "o", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+P -> Ctrl+P",
+                                "from": { "key_code": "p", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "p", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+R -> Ctrl+R",
+                                "from": { "key_code": "r", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "r", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+S -> Ctrl+S",
+                                "from": { "key_code": "s", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "s", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+T -> Ctrl+T",
+                                "from": { "key_code": "t", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "t", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+U -> Ctrl+U",
+                                "from": { "key_code": "u", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "u", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+V -> Ctrl+V",
+                                "from": { "key_code": "v", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "v", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+W -> Ctrl+W",
+                                "from": { "key_code": "w", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "w", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+X -> Ctrl+X",
+                                "from": { "key_code": "x", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "x", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+Y -> Ctrl+Y",
+                                "from": { "key_code": "y", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "y", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+Z -> Ctrl+Z",
+                                "from": { "key_code": "z", "modifiers": { "mandatory": ["command"] } },
+                                "to": [{ "key_code": "z", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+/ -> Ctrl+/",
+                                "from": { "key_code": "slash", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "slash", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+[ -> Ctrl+[",
+                                "from": { "key_code": "open_bracket", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "open_bracket", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+] -> Ctrl+]",
+                                "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "close_bracket", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+` -> Ctrl+`",
+                                "from": { "key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "grave_accent_and_tilde", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+1 -> Ctrl+1",
+                                "from": { "key_code": "1", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "1", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+2 -> Ctrl+2",
+                                "from": { "key_code": "2", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "2", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+3 -> Ctrl+3",
+                                "from": { "key_code": "3", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "3", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+4 -> Ctrl+4",
+                                "from": { "key_code": "4", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "4", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+5 -> Ctrl+5",
+                                "from": { "key_code": "5", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "5", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+6 -> Ctrl+6",
+                                "from": { "key_code": "6", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "6", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+7 -> Ctrl+7",
+                                "from": { "key_code": "7", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "7", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+8 -> Ctrl+8",
+                                "from": { "key_code": "8", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "8", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+9 -> Ctrl+9",
+                                "from": { "key_code": "9", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "9", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "CMD+0 -> Ctrl+0",
+                                "from": { "key_code": "0", "modifiers": { "mandatory": ["command"], "optional": ["shift"] } },
+                                "to": [{ "key_code": "0", "modifiers": ["left_control"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
                             }
                         ]
                     },
                     {
-                        "description": "Parsec: Swap CMD and CTRL (so CMD = Windows CTRL)",
+                        "description": "Swap command and control (RDC/Blaze)",
                         "manipulators": [
                             {
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "left_control",
-                                    "modifiers": {
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_command"
-                                    }
-                                ],
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": ["^tv\\.parsec\\.www$"]
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "left_command",
-                                    "modifiers": {
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_control"
-                                    }
-                                ],
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": ["^tv\\.parsec\\.www$"]
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "right_control",
-                                    "modifiers": {
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_command"
-                                    }
-                                ],
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": ["^tv\\.parsec\\.www$"]
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "right_command",
-                                    "modifiers": {
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_control"
-                                    }
-                                ],
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": ["^tv\\.parsec\\.www$"]
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Swap command and control",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "com\\.microsoft\\.rdc\\.mac",
-                                            "com\\.ericom\\.blazeclient"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "left_control",
-                                    "modifiers": {
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_command"
-                                    }
-                                ],
+                                "conditions": [{ "bundle_identifiers": ["com\\.microsoft\\.rdc\\.mac", "com\\.ericom\\.blazeclient"], "type": "frontmost_application_if" }],
+                                "from": { "key_code": "left_control", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "left_command" }],
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "com\\.microsoft\\.rdc\\.mac",
-                                            "com\\.ericom\\.blazeclient"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "left_command",
-                                    "modifiers": {
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_control"
-                                    }
-                                ],
+                                "conditions": [{ "bundle_identifiers": ["com\\.microsoft\\.rdc\\.mac", "com\\.ericom\\.blazeclient"], "type": "frontmost_application_if" }],
+                                "from": { "key_code": "left_command", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "left_control" }],
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "com\\.microsoft\\.rdc\\.mac",
-                                            "com\\.ericom\\.blazeclient"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "right_control",
-                                    "modifiers": {
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_command"
-                                    }
-                                ],
+                                "conditions": [{ "bundle_identifiers": ["com\\.microsoft\\.rdc\\.mac", "com\\.ericom\\.blazeclient"], "type": "frontmost_application_if" }],
+                                "from": { "key_code": "right_control", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "right_command" }],
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "com\\.microsoft\\.rdc\\.mac",
-                                            "com\\.ericom\\.blazeclient"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "right_command",
-                                    "modifiers": {
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_control"
-                                    }
-                                ],
+                                "conditions": [{ "bundle_identifiers": ["com\\.microsoft\\.rdc\\.mac", "com\\.ericom\\.blazeclient"], "type": "frontmost_application_if" }],
+                                "from": { "key_code": "right_command", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "right_control" }],
                                 "type": "basic"
                             }
                         ]
@@ -413,12 +544,7 @@
                 {
                     "disable_built_in_keyboard_if_exists": false,
                     "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 834,
-                        "vendor_id": 1452
-                    },
+                    "identifiers": { "is_keyboard": true, "is_pointing_device": false, "product_id": 834, "vendor_id": 1452 },
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
                     "simple_modifications": [],
@@ -427,12 +553,7 @@
                 {
                     "disable_built_in_keyboard_if_exists": false,
                     "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": false,
-                        "is_pointing_device": true,
-                        "product_id": 834,
-                        "vendor_id": 1452
-                    },
+                    "identifiers": { "is_keyboard": false, "is_pointing_device": true, "product_id": 834, "vendor_id": 1452 },
                     "ignore": true,
                     "manipulate_caps_lock_led": false,
                     "simple_modifications": [],
@@ -441,12 +562,7 @@
                 {
                     "disable_built_in_keyboard_if_exists": false,
                     "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": false,
-                        "is_pointing_device": true,
-                        "product_id": 617,
-                        "vendor_id": 76
-                    },
+                    "identifiers": { "is_keyboard": false, "is_pointing_device": true, "product_id": 617, "vendor_id": 76 },
                     "ignore": true,
                     "manipulate_caps_lock_led": false,
                     "simple_modifications": [],
@@ -468,16 +584,10 @@
                 {"from": {"key_code": "f12"}, "to": [{"consumer_key_code": "volume_increment"}]}
             ],
             "name": "Default profile",
-            "parameters": {
-                "delay_milliseconds_before_open_device": 1000
-            },
+            "parameters": { "delay_milliseconds_before_open_device": 1000 },
             "selected": true,
             "simple_modifications": [],
-            "virtual_hid_keyboard": {
-                "country_code": 0,
-                "indicate_sticky_modifier_keys_state": true,
-                "mouse_key_xy_scale": 100
-            }
+            "virtual_hid_keyboard": { "country_code": 0, "indicate_sticky_modifier_keys_state": true, "mouse_key_xy_scale": 100 }
         }
     ]
 }
