@@ -85,6 +85,20 @@
                             },
                             {
                                 "type": "basic",
+                                "description": "CMD+ESC -> Alt+ESC (cancel task switcher)",
+                                "from": { "key_code": "escape", "modifiers": { "mandatory": ["command"] } },
+                                "to": [{ "key_code": "escape", "modifiers": ["left_option"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
+                                "description": "Ctrl+Shift+ESC -> Ctrl+Shift+ESC (Task Manager)",
+                                "from": { "key_code": "escape", "modifiers": { "mandatory": ["control", "shift"] } },
+                                "to": [{ "key_code": "escape", "modifiers": ["left_control", "shift"] }],
+                                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^tv\\.parsec\\.www$"] }]
+                            },
+                            {
+                                "type": "basic",
                                 "description": "Option+8 -> [ (AltGr+8 Danish)",
                                 "from": { "key_code": "8", "modifiers": { "mandatory": ["option"] } },
                                 "to": [{ "key_code": "8", "modifiers": ["right_alt"] }],
